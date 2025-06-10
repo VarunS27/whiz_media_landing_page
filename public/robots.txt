@@ -39,11 +39,11 @@ User-agent: ChatGPT-User
 Disallow: /
 
 # Sitemaps
-Sitemap: https://whizmedia.com/sitemap.xml
+Sitemap: https://whizmedia.in/sitemap.xml
 
 # Rate limiting
 Crawl-delay: 10
 
 # Additional rules
-Host: whizmedia.com
+Host: whizmedia.in
 Clean-param: utm_source&utm_medium&utm_campaign&utm_content&utm_term 

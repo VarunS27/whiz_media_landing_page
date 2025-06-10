@@ -10,7 +10,7 @@
         http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
   <!-- Homepage -->
   <url>
-    <loc>https://whizmedia.com/</loc>
+    <loc>https://whizmedia.in/</loc>
     <lastmod>2024-03-20</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
@@ -18,31 +18,31 @@
 
   <!-- Main Services -->
   <url>
-    <loc>https://whizmedia.com/services</loc>
+    <loc>https://whizmedia.in/services</loc>
     <lastmod>2024-03-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
     <image:image>
-      <image:loc>https://whizmedia.com/services-hero.jpg</image:loc>
+      <image:loc>https://whizmedia.in/services-hero.jpg</image:loc>
       <image:title>Whiz Media Services</image:title>
     </image:image>
   </url>
 
   <!-- About Us -->
   <url>
-    <loc>https://whizmedia.com/about</loc>
+    <loc>https://whizmedia.in/about</loc>
     <lastmod>2024-03-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
-      <image:loc>https://whizmedia.com/about-team.jpg</image:loc>
+      <image:loc>https://whizmedia.in/about-team.jpg</image:loc>
       <image:title>About Whiz Media Team</image:title>
     </image:image>
   </url>
 
   <!-- Client Portfolio -->
   <url>
-    <loc>https://whizmedia.com/clients</loc>
+    <loc>https://whizmedia.in/clients</loc>
     <lastmod>2024-03-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
@@ -50,7 +50,7 @@
 
   <!-- Contact Page -->
   <url>
-    <loc>https://whizmedia.com/contact</loc>
+    <loc>https://whizmedia.in/contact</loc>
     <lastmod>2024-03-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -58,25 +58,25 @@
 
   <!-- Service Category Pages -->
   <url>
-    <loc>https://whizmedia.com/services/digital-marketing</loc>
+    <loc>https://whizmedia.in/services/digital-marketing</loc>
     <lastmod>2024-03-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://whizmedia.com/services/social-media-management</loc>
+    <loc>https://whizmedia.in/services/social-media-management</loc>
     <lastmod>2024-03-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://whizmedia.com/services/content-creation</loc>
+    <loc>https://whizmedia.in/services/content-creation</loc>
     <lastmod>2024-03-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://whizmedia.com/services/brand-strategy</loc>
+    <loc>https://whizmedia.in/services/brand-strategy</loc>
     <lastmod>2024-03-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
