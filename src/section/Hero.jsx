@@ -59,8 +59,8 @@ const HeroAbout = () => {
               <motion.div
                 initial={{ scaleX: 0 }}
                 animate={{ scaleX: 1 }}
-                transition={{ duration: 1.8, delay: 0.8, ease: "easeInOut" }}
-                className="absolute -bottom-2 sm:-bottom-4 left-1/2 -translate-x-1/2 w-16 sm:w-24 lg:w-32 h-px bg-gradient-to-r from-transparent via-white to-transparent"
+                transition={{ duration: 1.8, delay: 0.8, ease: "easeInOut"}}
+                className="absolute -bottom-2 sm:-bottom-4 left-[27rem] -translate-x-1/2 w-16 sm:w-24 lg:w-32 h-px bg-gradient-to-r from-transparent via-white to-transparent"
               />
             </motion.div>
 
