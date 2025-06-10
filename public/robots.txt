@@ -1,0 +1,49 @@
+# Global rules
+User-agent: *
+Allow: /
+Disallow: /api/
+Disallow: /admin/
+Disallow: /private/
+Disallow: /*?*
+Disallow: /*?
+Disallow: /search?
+Allow: /search/
+
+# Specific rules for major search engines
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 1
+
+User-agent: Googlebot-Image
+Allow: /
+Allow: /images/
+Allow: /*.jpg$
+Allow: /*.jpeg$
+Allow: /*.gif$
+Allow: /*.png$
+Allow: /*.webp$
+
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 2
+
+User-agent: DuckDuckBot
+Allow: /
+Crawl-delay: 2
+
+# Block certain bots
+User-agent: GPTBot
+Disallow: /
+
+User-agent: ChatGPT-User
+Disallow: /
+
+# Sitemaps
+Sitemap: https://whizmedia.com/sitemap.xml
+
+# Rate limiting
+Crawl-delay: 10
+
+# Additional rules
+Host: whizmedia.com
+Clean-param: utm_source&utm_medium&utm_campaign&utm_content&utm_term 
