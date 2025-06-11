@@ -55,12 +55,17 @@ const HeroAbout = () => {
                 WHIZMEDIA
               </h1>
               
-              {/* Subtle accent line */}
+              {/* Subtle accent line - positioned below Z & M */}
               <motion.div
                 initial={{ scaleX: 0 }}
                 animate={{ scaleX: 1 }}
                 transition={{ duration: 1.8, delay: 0.8, ease: "easeInOut"}}
-                className="absolute -bottom-2 sm:-bottom-4 left-[27rem] -translate-x-1/2 w-16 sm:w-24 lg:w-32 h-px bg-gradient-to-r from-transparent via-white to-transparent"
+                className="absolute top-full mt-2 sm:mt-4 w-12 sm:w-16 md:w-20 lg:w-24 xl:w-32 h-px bg-gradient-to-r from-transparent via-white to-transparent"
+                style={{
+                  left: '50%',
+                  transform: 'translateX(-50%)',
+                  marginLeft: 'clamp(-12rem, -8vw, -1.5rem)'
+                }}
               />
             </motion.div>
 
