@@ -1,4 +1,17 @@
 import React, { useRef, useState, useEffect } from 'react';
+import im1 from '../assets/1.png';
+import im2 from '../assets/2.png';
+import im3 from '../assets/3.png';
+import im4 from '../assets/4.png';
+import im5 from '../assets/5.png';
+import im6 from '../assets/6.png';
+import im7 from '../assets/7.png';
+import im8 from '../assets/8.png';  
+import im9 from '../assets/9.png';
+import im10 from '../assets/10.png';
+import im11 from '../assets/11.png';
+import im12 from '../assets/12.png';  
+
 
 const ClientsSection = () => {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
@@ -8,108 +21,91 @@ const ClientsSection = () => {
   const containerRef = useRef(null);
   const intervalRef = useRef(null);
 
+  // Using placeholder images for demonstration - replace with your actual image imports
   const clients = [
     { 
       id: 1, 
-      name: "W Studio", 
-      logo: "W", 
-      category: "Creative Agency",
-      bgColor: "bg-white",
-      textColor: "text-black",
+      name: "Whiz Media", 
+      logo: im1, 
+      category: "Social Media Marketing Agency",
       description: "Innovative creative solutions"
     },
     { 
       id: 2, 
-      name: "Infinity Design", 
-      logo: "∞", 
-      category: "Design Studio",
-      bgColor: "bg-gray-100",
-      textColor: "text-black",
-      description: "Limitless design possibilities"
+      name: "Wild Ivy Wedding and Events Planners", 
+      logo: im2, 
+      category: "Event Planning",
+      description: "Creating unforgettable moments"
     },
     { 
       id: 3, 
-      name: "IZ Studio", 
-      logo: "IZ", 
-      category: "Silk Sarees",
-      bgColor: "bg-white",
-      textColor: "text-black",
-      border: "border-2 border-gray-300",
-      description: "Traditional elegance redefined"
+      name: "Maw & Paw", 
+      logo: im3, 
+      category: "Organic pet products",
+      description: "Natural care for your pets"
     },
     { 
       id: 4, 
-      name: "Naren Gems", 
-      logo: "NG", 
-      category: "Jewelry",
-      bgColor: "bg-gray-200",
-      textColor: "text-black",
-      description: "Luxury jewelry collections"
+      name: "IZ Studio", 
+      logo: im4, 
+      category: "Saree manufactures",
+      description: "Crafting timeless sarees"
     },
     { 
       id: 5, 
-      name: "24BUY7", 
-      logo: "24", 
-      category: "E-commerce",
-      bgColor: "bg-gray-300",
-      textColor: "text-black",
-      description: "Round-the-clock shopping"
+      name: "Naren Gems", 
+      logo: im5, 
+      category: "Real Diamond Company",
+      description: "Authentic diamond excellence"
     },
     { 
       id: 6, 
-      name: "Trendlend", 
-      logo: "TL", 
-      category: "Fashion",
-      bgColor: "bg-white",
-      textColor: "text-black",
-      border: "border-2 border-gray-300",
-      description: "Fashion forward trends"
+      name: "24buy7", 
+      logo: im6, 
+      category: "Vending machine Distributors",
+      description: "Convenience at your fingertips"
     },
     { 
       id: 7, 
-      name: "Daily Delight", 
-      logo: "DD", 
-      category: "Food & Beverage",
-      bgColor: "bg-gray-100",
-      textColor: "text-black",
-      description: "Daily culinary experiences"
+      name: "Trendlend ", 
+      logo: im7, 
+      category: "Quick Home grown clothing rental stop",
+      description: "Sustainable fashion solutions"
     },
     { 
       id: 8, 
-      name: "Amorefy", 
-      logo: "AM", 
-      category: "Beauty & Cosmetics",
-      bgColor: "bg-gray-200",
-      textColor: "text-black",
-      description: "Beauty that inspires"
+      name: "Daily Delight", 
+      logo: im8, 
+      category: "Cafe",
+      description: "Delicious moments every day"
     },
     { 
       id: 9, 
-      name: "Personal Brand", 
-      logo: "PB", 
-      category: "Personal Branding",
-      bgColor: "bg-white",
-      textColor: "text-black",
-      description: "Authentic personal stories"
+      name: "Amorefy", 
+      logo: im9, 
+      category: "Skincare brand",
+      description: "Nurturing your skin naturally"
     },
     { 
       id: 10, 
-      name: "iLegalLearn", 
-      logo: "iLL", 
-      category: "Legal Education",
-      bgColor: "bg-gray-100",
-      textColor: "text-black",
-      border: "border-2 border-gray-300",
-      description: "Legal knowledge simplified"
+      name: "Practical with Pratik", 
+      logo: im10, 
+      category: "Finance educator",
+      description: "Empowering financial literacy"
     },
     { 
       id: 11, 
+      name: "iLegalLearn", 
+      logo: im11, 
+      category: "Legal ed tech platform",
+      description: "Transforming legal education"
+    },
+    { 
+      id: 12, 
       name: "iLegalAdvice", 
-      logo: "iLA", 
-      category: "Legal Services",
-      bgColor: "bg-gray-200",
-      textColor: "text-black",
-      description: "Expert legal guidance"
+      logo: im12, 
+      category: "One stop legal solutions",
+      description: "Your legal partner for success"
     },
   ];
 
@@ -118,7 +114,7 @@ const ClientsSection = () => {
     if (!isPaused) {
       intervalRef.current = setInterval(() => {
         setCurrentIndex((prevIndex) => (prevIndex + 1) % clients.length);
-      }, 3000);
+      }, 4000);
     }
 
     return () => {
@@ -128,7 +124,7 @@ const ClientsSection = () => {
     };
   }, [isPaused, clients.length]);
 
-  // Mouse tracking for spotlight effect
+  // Mouse tracking for interactive effects
   useEffect(() => {
     const handleMouseMove = (e) => {
       if (containerRef.current) {
@@ -147,10 +143,10 @@ const ClientsSection = () => {
     }
   }, []);
 
-  // Get visible clients based on screen size
+  // Get visible clients for curved display
   const getVisibleClients = () => {
     const visible = [];
-    const visibleCount = window.innerWidth < 640 ? 3 : window.innerWidth < 1024 ? 4 : 5;
+    const visibleCount = window.innerWidth < 640 ? 3 : window.innerWidth < 1024 ? 5 : 7;
     for (let i = 0; i < visibleCount; i++) {
       visible.push(clients[(currentIndex + i) % clients.length]);
     }
@@ -181,99 +177,83 @@ const ClientsSection = () => {
       ref={containerRef}
       className="relative bg-black min-h-screen py-12 sm:py-16 md:py-20 overflow-hidden"
     >
-      {/* Enhanced Curved Background Elements */}
+      {/* Dynamic Background Elements */}
       <div className="absolute inset-0">
-        {/* Large curved shapes */}
-        <div className="absolute -top-32 -left-32 w-64 h-64 sm:w-96 sm:h-96 md:w-[500px] md:h-[500px] rounded-full bg-white/5 blur-3xl opacity-40 animate-pulse" />
-        <div className="absolute -bottom-40 -right-40 w-80 h-80 sm:w-[500px] sm:h-[500px] md:w-[600px] md:h-[600px] rounded-full bg-white/3 blur-3xl opacity-30 animate-pulse delay-1000" />
-        <div className="absolute top-1/3 right-1/6 w-48 h-48 sm:w-72 sm:h-72 md:w-96 md:h-96 rounded-full bg-white/8 blur-3xl opacity-25 animate-pulse delay-2000" />
-        
-        {/* Curved decorative lines */}
-        <svg className="absolute inset-0 w-full h-full opacity-10" viewBox="0 0 1000 1000" preserveAspectRatio="none">
-          <path 
-            d="M0,300 Q250,150 500,300 T1000,300" 
-            fill="none" 
-            stroke="white" 
-            strokeWidth="2"
-            className="animate-pulse"
+        {/* Curved light rays */}
+        <div className="absolute inset-0 opacity-20">
+          <div 
+            className="absolute top-1/4 left-1/4 w-96 h-2 bg-gradient-to-r from-transparent via-white to-transparent transform rotate-12 blur-sm"
+            style={{
+              transform: `rotate(${mousePosition.x * 20 - 10}deg) translateX(${mousePosition.x * 50}px)`
+            }}
           />
-          <path 
-            d="M0,700 Q250,550 500,700 T1000,700" 
-            fill="none" 
-            stroke="white" 
-            strokeWidth="1.5"
-            className="animate-pulse delay-1000"
+          <div 
+            className="absolute top-3/4 right-1/4 w-80 h-1 bg-gradient-to-r from-transparent via-gray-300 to-transparent transform -rotate-12 blur-sm"
+            style={{
+              transform: `rotate(${mousePosition.y * -15 + 5}deg) translateY(${mousePosition.y * -30}px)`
+            }}
           />
-          <path 
-            d="M0,500 Q500,350 1000,500" 
-            fill="none" 
-            stroke="white" 
-            strokeWidth="1"
-            className="animate-pulse delay-2000"
-          />
-        </svg>
+        </div>
+
+        {/* Ambient orbs */}
+        <div className="absolute top-20 right-20 w-64 h-64 rounded-full bg-white/5 blur-3xl animate-pulse" />
+        <div className="absolute bottom-32 left-32 w-80 h-80 rounded-full bg-white/3 blur-3xl animate-pulse delay-1000" />
       </div>
 
-      {/* Enhanced mouse-following spotlight */}
+      {/* Interactive spotlight effect */}
       <div
-        className="absolute inset-0 pointer-events-none opacity-30"
+        className="absolute inset-0 pointer-events-none opacity-40"
         style={{
-          background: `radial-gradient(300px circle at ${mousePosition.x * 100}% ${mousePosition.y * 100}%, rgba(255,255,255,0.15), transparent 60%)`,
+          background: `radial-gradient(400px circle at ${mousePosition.x * 100}% ${mousePosition.y * 100}%, rgba(255,255,255,0.1), transparent 50%)`,
         }}
       />
 
       <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Responsive Header */}
-        <div className="text-center mb-12 sm:mb-16 md:mb-20">
-          <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-7xl font-black text-white mb-4 sm:mb-6 md:mb-8 leading-tight">
+        {/* Header Section */}
+        <div className="text-center mb-16 sm:mb-20 md:mb-24">
+          <h2 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-black text-white mb-6 sm:mb-8 leading-tight">
             Our{" "}
-            <span className="bg-gradient-to-r from-gray-300 via-white to-gray-200 bg-clip-text text-transparent italic">
+            <span className="bg-gradient-to-r from-gray-300 via-white to-gray-100 bg-clip-text text-transparent italic">
               Clients
             </span>
           </h2>
           
-          {/* Curved decorative element */}
-          <div className="relative mx-auto mb-6 sm:mb-8">
-            <div className="w-24 sm:w-32 h-2 bg-gradient-to-r from-gray-300 to-white mx-auto rounded-full" />
-            <svg className="absolute -top-4 left-1/2 transform -translate-x-1/2 w-32 sm:w-40 h-8 opacity-30">
-              <path 
-                d="M0,6 Q20,0 40,6 T80,6" 
-                fill="none" 
-                stroke="white" 
-                strokeWidth="1"
-              />
-            </svg>
-          </div>
+          <div className="w-32 sm:w-40 h-1 bg-gradient-to-r from-transparent via-white to-transparent mx-auto mb-8" />
           
-          <p className="text-lg sm:text-xl md:text-2xl text-gray-300 max-w-3xl md:max-w-4xl mx-auto leading-relaxed px-4">
-            Trusted by visionary brands that value{" "}
-            <span className="text-white font-semibold">strategic creativity</span>
+          <p className="text-xl sm:text-2xl md:text-3xl text-gray-300 max-w-4xl mx-auto leading-relaxed">
+            Showcased on the{" "}
+            <span className="text-white font-bold">digital stage</span>
+            {" "}of success
           </p>
         </div>
 
-        {/* Responsive Carousel Container */}
-        <div className="relative mb-12 sm:mb-16">
-          {/* Curved path for client logos */}
-          <div className="relative">
-            {/* Clients Carousel with curved arrangement */}
-            <div className="flex justify-center items-end gap-3 sm:gap-4 md:gap-6 lg:gap-8 mb-8 sm:mb-12 min-h-[200px] sm:min-h-[240px] md:min-h-[280px]">
+        {/* Curved Screens Display */}
+        <div className="relative mb-16 sm:mb-20">
+          {/* Main curved display container */}
+          <div className="relative perspective-1000" style={{ perspective: '1000px' }}>
+            {/* Curved screens arrangement */}
+            <div className="flex justify-center items-center gap-4 sm:gap-6 md:gap-8 mb-12 min-h-[300px] sm:min-h-[400px] md:min-h-[500px]">
               {getVisibleClients().map((client, index) => {
                 const totalVisible = getVisibleClients().length;
-                const isCenter = index === Math.floor(totalVisible / 2);
-                const distance = Math.abs(index - Math.floor(totalVisible / 2));
+                const centerIndex = Math.floor(totalVisible / 2);
+                const isCenter = index === centerIndex;
+                const distance = Math.abs(index - centerIndex);
                 
-                // Calculate curved positioning
-                const curveOffset = distance * distance * 15; // Quadratic curve
-                const scaleValue = isCenter ? 1.3 : distance === 1 ? 1.1 : 0.9;
+                // Calculate 3D positioning for curved effect
+                const rotateY = (index - centerIndex) * 15; // Rotation angle
+                const translateZ = isCenter ? 50 : distance === 1 ? 0 : -30; // Depth
+                const scale = isCenter ? 1.2 : distance === 1 ? 1 : 0.8;
+                const opacity = distance > 2 ? 0.3 : distance === 2 ? 0.6 : 1;
                 
                 return (
                   <div
                     key={`${client.id}-${currentIndex}`}
-                    className={`group relative flex flex-col items-center transition-all duration-700 ease-out transform`}
+                    className="group relative transition-all duration-1000 ease-out"
                     style={{
-                      transform: `scale(${scaleValue}) translateY(${curveOffset}px)`,
-                      zIndex: isCenter ? 20 : distance === 1 ? 10 : 5,
-                      opacity: distance > 2 ? 0.4 : distance === 2 ? 0.6 : distance === 1 ? 0.8 : 1
+                      transform: `rotateY(${rotateY}deg) translateZ(${translateZ}px) scale(${scale})`,
+                      transformStyle: 'preserve-3d',
+                      opacity: opacity,
+                      zIndex: isCenter ? 30 : distance === 1 ? 20 : 10
                     }}
                     onMouseEnter={() => {
                       setHoveredClient(client.id);
@@ -284,144 +264,161 @@ const ClientsSection = () => {
                       handleResume();
                     }}
                   >
-                    {/* Logo Circle with enhanced curves */}
+                    {/* Curved Screen Frame */}
                     <div className={`
-                      relative w-12 h-12 sm:w-16 sm:h-16 md:w-20 md:h-20 lg:w-24 lg:h-24 xl:w-28 xl:h-28 
-                      rounded-full ${client.bgColor} ${client.border || ''} 
-                      flex items-center justify-center
-                      group-hover:scale-110 group-hover:shadow-2xl group-hover:shadow-white/20
-                      transition-all duration-500 ease-out cursor-pointer
-                      ${isCenter ? 'shadow-xl shadow-white/30' : ''}
+                      relative w-32 h-40 sm:w-40 sm:h-48 md:w-48 md:h-60 lg:w-56 lg:h-72 
+                      bg-gradient-to-b from-gray-800 to-gray-900 
+                      rounded-3xl p-2 sm:p-3 shadow-2xl
+                      border border-gray-600
+                      group-hover:border-white/50 group-hover:shadow-white/20 group-hover:shadow-2xl
+                      transition-all duration-500 cursor-pointer
+                      ${isCenter ? 'border-white/30 shadow-white/10' : ''}
                     `}>
-                      {/* Enhanced glow effect */}
-                      <div className="absolute inset-0 rounded-full bg-gradient-to-r from-white/20 to-gray-200/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-xl scale-110" />
                       
-                      {/* Curved highlight */}
-                      <div className="absolute -inset-2 rounded-full border border-white/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                      {/* Screen Bezel */}
+                      <div className="absolute inset-1 rounded-2xl bg-black border border-gray-700" />
                       
-                      {/* Logo text */}
-                      <span className={`
-                        ${client.textColor} text-xs sm:text-sm md:text-lg lg:text-xl xl:text-2xl font-black 
-                        relative z-10 group-hover:scale-110 transition-transform duration-300
-                      `}>
-                        {client.logo}
-                      </span>
+                      {/* Screen Content */}
+                      <div className="relative w-full h-full rounded-2xl overflow-hidden bg-gradient-to-br from-gray-900 to-black">
+                        {/* Screen Glow Effect */}
+                        <div className="absolute inset-0 bg-gradient-to-t from-transparent via-white/5 to-white/10 opacity-50" />
+                        
+                        {/* Client Logo Display */}
+                        <div className="absolute inset-2 flex flex-col items-center justify-center p-2 sm:p-3">
+                          {/* Logo */}
+                          <div className="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 lg:w-28 lg:h-28 mb-2 sm:mb-3 rounded-xl overflow-hidden bg-white/10 backdrop-blur-sm border border-white/20">
+                            <img 
+                              src={client.logo} 
+                              alt={`${client.name} logo`}
+                              className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
+                              onError={(e) => {
+                                e.target.style.display = 'none';
+                                e.target.nextSibling.style.display = 'flex';
+                              }}
+                            />
+                            <div className="w-full h-full bg-gradient-to-br from-white to-gray-300 flex items-center justify-center text-black font-bold text-lg lg:text-xl" style={{display: 'none'}}>
+                              {client.name.split(' ').map(word => word[0]).join('').substring(0, 2)}
+                            </div>
+                          </div>
+                          
+                          {/* Client Info */}
+                          <div className="text-center">
+                            <h3 className="text-xs sm:text-sm md:text-base font-bold text-white mb-1 leading-tight">
+                              {client.name}
+                            </h3>
+                            <p className="text-xs text-gray-300 opacity-80 leading-tight">
+                              {client.category}
+                            </p>
+                          </div>
+                        </div>
+                        
+                        {/* Screen Reflection */}
+                        <div className="absolute top-0 left-1/4 w-1/4 h-full bg-gradient-to-r from-transparent via-white/10 to-transparent opacity-30 transform -skew-x-12" />
+                      </div>
+                      
+                      {/* Screen Stand */}
+                      <div className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-8 h-4 bg-gradient-to-b from-gray-700 to-gray-800 rounded-b-lg border-x border-gray-600" />
                     </div>
 
-                    {/* Client Info - Responsive visibility */}
+                    {/* Hover Info Panel */}
                     <div className={`
-                      mt-2 sm:mt-3 md:mt-4 text-center transition-all duration-300 transform
-                      ${isCenter || hoveredClient === client.id ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-2'}
+                      absolute -bottom-16 left-1/2 transform -translate-x-1/2 
+                      bg-white/95 backdrop-blur-sm text-black px-4 py-2 rounded-lg shadow-lg
+                      transition-all duration-300 pointer-events-none
+                      ${hoveredClient === client.id ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}
                     `}>
-                      <h3 className="text-xs sm:text-sm md:text-base font-bold text-white mb-1">
-                        {client.name}
-                      </h3>
-                      <p className="text-xs md:text-sm text-gray-300 mb-1 sm:mb-2">
-                        {client.category}
-                      </p>
-                      <p className="text-xs text-gray-400 italic max-w-24 sm:max-w-32 hidden sm:block">
+                      <p className="text-sm font-medium text-center whitespace-nowrap">
                         {client.description}
                       </p>
                     </div>
 
-                    {/* Center highlight with curve */}
+                    {/* Center Indicator */}
                     {isCenter && (
-                      <div className="absolute -bottom-2 sm:-bottom-4 left-1/2 transform -translate-x-1/2">
-                        <div className="w-2 h-2 bg-white rounded-full animate-pulse" />
-                        <svg className="absolute -top-6 left-1/2 transform -translate-x-1/2 w-8 h-6 opacity-50">
-                          <path 
-                            d="M0,6 Q4,0 8,6" 
-                            fill="none" 
-                            stroke="white" 
-                            strokeWidth="1"
-                          />
-                        </svg>
+                      <div className="absolute -bottom-8 left-1/2 transform -translate-x-1/2">
+                        <div className="w-3 h-3 bg-white rounded-full animate-pulse shadow-lg" />
                       </div>
                     )}
                   </div>
                 );
               })}
             </div>
-
-            {/* Curved base line */}
-            <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-3/4 h-1">
-              <svg className="w-full h-full opacity-20">
-                <path 
-                  d="M0,0 Q50,4 100,0" 
-                  fill="none" 
-                  stroke="white" 
-                  strokeWidth="1"
-                  vectorEffect="non-scaling-stroke"
-                  preserveAspectRatio="none"
-                />
-              </svg>
-            </div>
           </div>
 
           {/* Navigation Dots */}
-          <div className="flex justify-center gap-1.5 sm:gap-2 mb-6 sm:mb-8 flex-wrap">
+          <div className="flex justify-center gap-2 mb-8 flex-wrap">
             {clients.map((_, index) => (
               <button
                 key={index}
                 onClick={() => handleDotClick(index)}
-                className={`w-2 h-2 sm:w-3 sm:h-3 rounded-full transition-all duration-300 ${
+                className={`w-3 h-3 rounded-full transition-all duration-300 ${
                   index === currentIndex 
-                    ? 'bg-white scale-125' 
+                    ? 'bg-white scale-125 shadow-lg' 
                     : 'bg-gray-600 hover:bg-gray-400'
                 }`}
               />
             ))}
           </div>
 
-          {/* Auto-rotate indicator */}
-          <div className="text-center text-gray-400 text-xs sm:text-sm px-4">
-            {isPaused ? 'Paused - Move away from icons to resume' : 'Auto-rotating - Hover on any icon to pause'}
+          {/* Status Indicator */}
+          <div className="text-center text-gray-400 text-sm">
+            {isPaused ? (
+              <span className="flex items-center justify-center gap-2">
+                <div className="w-2 h-2 bg-yellow-500 rounded-full animate-pulse" />
+                Paused - Move away from screens to resume
+              </span>
+            ) : (
+              <span className="flex items-center justify-center gap-2">
+                <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse" />
+                Auto-rotating - Hover on any screen to pause
+              </span>
+            )}
           </div>
         </div>
 
-        {/* Responsive Statistics */}
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 md:gap-8 mb-12 sm:mb-16 md:mb-20 max-w-5xl mx-auto">
+        {/* Statistics Grid */}
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8 mb-16 sm:mb-20 max-w-6xl mx-auto">
           {[
-            { number: "11+", label: "Trusted Clients", style: "bg-white/10 border border-white/20 text-white backdrop-blur-sm" },
-            { number: "100%", label: "Success Rate", style: "bg-white text-black" },
-            { number: "50+", label: "Projects Delivered", style: "bg-white/10 border border-white/20 text-white backdrop-blur-sm" },
-            { number: "5★", label: "Average Rating", style: "bg-white text-black" }
+            { number: "11+", label: "Trusted Clients", accent: true },
+            { number: "100%", label: "Success Rate", accent: false },
+            { number: "50+", label: "Projects Delivered", accent: true },
+            { number: "5★", label: "Average Rating", accent: false }
           ].map((stat, index) => (
-            <div key={index} className={`text-center p-4 sm:p-6 rounded-2xl hover:shadow-lg transition-all duration-300 ${stat.style}`}>
-              <div className="text-2xl sm:text-3xl md:text-4xl font-black mb-2">{stat.number}</div>
-              <div className="text-xs sm:text-sm opacity-80">{stat.label}</div>
+            <div 
+              key={index} 
+              className={`
+                text-center p-6 sm:p-8 rounded-2xl transition-all duration-300 hover:scale-105
+                ${stat.accent 
+                  ? 'bg-white/10 border border-white/20 text-white backdrop-blur-sm hover:bg-white/15' 
+                  : 'bg-white text-black hover:bg-gray-100'
+                }
+              `}
+            >
+              <div className="text-3xl sm:text-4xl md:text-5xl font-black mb-3">{stat.number}</div>
+              <div className="text-sm sm:text-base opacity-80 font-medium">{stat.label}</div>
             </div>
           ))}
         </div>
 
-        {/* Responsive Testimonial */}
-        <div className="max-w-4xl mx-auto text-center p-6 sm:p-8 md:p-10 rounded-3xl bg-white/10 border border-white/20 shadow-lg backdrop-blur-sm mb-12 sm:mb-16">
-          <div className="text-4xl sm:text-5xl md:text-6xl text-white/30 mb-4 sm:mb-6 font-serif">"</div>
-          <blockquote className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-200 font-light italic leading-relaxed mb-6 sm:mb-8 px-2">
-            Working with this team has been transformative for our brand. Their deep understanding of our vision and creative approach exceeded all expectations.
+        {/* Testimonial Section */}
+        <div className="max-w-5xl mx-auto text-center p-8 sm:p-10 md:p-12 rounded-3xl bg-white/10 border border-white/20 shadow-2xl backdrop-blur-sm mb-16 sm:mb-20">
+          <div className="text-6xl sm:text-7xl text-white/20 mb-6 font-serif">"</div>
+          <blockquote className="text-justify text-lg sm:text-xl md:text-2xl text-gray-200 font-light italic leading-relaxed mb-8 px-4">
+            "Partnering with Whiz Media for Entrevate's social media management was one of the best decisions we made. Their team brought incredible energy, creativity, and consistency to the table. From pre-event buzz to live coverage and post-event engagement, they handled everything seamlessly. The content was top-notch, the strategies were on point, and their professionalism stood out. 
+            Huge thanks to the <strong>Whiz Media team</strong> for amplifying Entrevate's presence and making it a memorable success!"
           </blockquote>
-          <div className="flex items-center justify-center gap-3 sm:gap-4">
-            <div className="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-r from-white to-gray-300 rounded-full flex items-center justify-center">
-              <span className="text-black font-bold text-xs sm:text-sm">CS</span>
-            </div>
-            <div className="text-left">
-              <div className="font-bold text-white text-sm sm:text-base">Client Success Story</div>
-              <div className="text-xs sm:text-sm text-gray-300">Industry Leader</div>
-            </div>
-          </div>
         </div>
 
-        {/* Responsive Call to Action */}
+        {/* Call to Action */}
         <div className="text-center">
-          <div 
-            className="inline-flex items-center gap-3 sm:gap-4 px-6 sm:px-8 py-3 sm:py-4 bg-white text-black rounded-full hover:bg-gray-200 transition-colors duration-300 cursor-pointer group"
+          <button
+            className="group inline-flex items-center gap-4 px-8 sm:px-10 py-4 sm:py-5 bg-white text-black rounded-full hover:bg-gray-100 transition-all duration-300 transform hover:scale-105 hover:shadow-2xl font-semibold text-lg"
             onClick={() => scrollToSection("contact")}
           >
-            <span className="font-semibold text-sm sm:text-base">Join Our Success Stories</span>
-            <div className="w-5 h-5 sm:w-6 sm:h-6 border-2 border-black rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-              <span className="text-xs">→</span>
+            <span>Join Our Success Stories</span>
+            <div className="w-6 h-6 border-2 border-black rounded-full flex items-center justify-center group-hover:rotate-90 transition-transform duration-300">
+              <span className="text-sm">→</span>
             </div>
-          </div>
+          </button>
         </div>
       </div>
     </section>

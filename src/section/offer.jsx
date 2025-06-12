@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 
-
 const OfferingsPage = () => {
   const [activeCard, setActiveCard] = useState(null);
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
@@ -17,7 +16,7 @@ const OfferingsPage = () => {
     {
       title: "CONTENT WRITING",
       description: "Compelling narratives that resonate with your audience and drive meaningful engagement across all digital platforms.",
-      stats: "500+ Projects",
+      stats: "50+ Projects",
       pattern: "diagonal-lines"
     },
     {
@@ -29,7 +28,7 @@ const OfferingsPage = () => {
     {
       title: "VIDEO EDITING",
       description: "Cinematic storytelling through expert post-production that captivates viewers and elevates your brand narrative.",
-      stats: "1M+ Views Generated",
+      stats: "250k+ Views Generated",
       pattern: "waves"
     },
     {
@@ -41,7 +40,7 @@ const OfferingsPage = () => {
     {
       title: "INFLUENCER MARKETING",
       description: "Strategic partnerships with authentic voices that amplify your message and build genuine community connections.",
-      stats: "50M+ Reach",
+      stats: "200k+ Reach",
       pattern: "hexagon"
     },
     {
@@ -49,17 +48,22 @@ const OfferingsPage = () => {
       description: "Precision-targeted campaigns that optimize every touchpoint to maximize conversions and accelerate growth.",
       stats: "3x Conversion Rate",
       pattern: "circuit"
+    },
+    {
+      title: "PORTFOLIO WEBSITE DEVELOPMENT",
+      description: "Stunning, responsive websites that showcase your work with pixel-perfect design and seamless user experience.",
+      stats: "95% Mobile Optimized",
+      pattern: "grid"
     }
   ];
-      const scrollToSection = (id) => {
+
+  const scrollToSection = (id) => {
     const section = document.getElementById(id);
     if (section) {
       section.scrollIntoView({ behavior: "smooth" });
-      setActive(id);
       setMobileMenuOpen(false);
     }
   };
-
 
   const PatternSVG = ({ pattern, isActive }) => {
     const patterns = {
@@ -103,7 +107,17 @@ const OfferingsPage = () => {
           <path d="M20,20 L80,20 L80,80 M40,40 L60,40 M20,60 L40,60" stroke="currentColor" strokeWidth="2" fill="none"/>
           <circle cx="40" cy="40" r="3" fill="currentColor"/>
         </svg>
-      )
+      ),
+      'grid': (
+        <svg className="absolute inset-0 w-full h-full opacity-10 group-hover:opacity-30 transition-opacity duration-500">
+          <defs>
+            <pattern id="grid" patternUnits="userSpaceOnUse" width="40" height="40">
+              <path d="M 40 0 L 0 0 0 40" fill="none" stroke="currentColor" strokeWidth="1"/>
+            </pattern>
+          </defs>
+          <rect width="100%" height="100%" fill="url(#grid)"/>
+        </svg>
+      ),
     };
     return patterns[pattern] || null;
   };
@@ -221,7 +235,7 @@ const OfferingsPage = () => {
               START YOUR PROJECT
             </button>
             <button className="border-2 border-white text-white px-12 py-6 text-lg font-black hover:bg-white hover:text-black transition-all duration-300 transform hover:scale-105 hover:-rotate-1"
-            onClick={() => scrollToSection("contact")}
+            onClick={() => scrollToSection("results")}
             >
               VIEW OUR WORK
             </button>

@@ -40,90 +40,58 @@ const GoalsSection = () => {
     { number: "03", title: "INCREASE TRAFFIC TO SOCIAL MEDIA ACCOUNT", delay: 400 }
   ];
 
-  // Reduce zoom effect on mobile for better performance
-  const zoomScale = 1 + scrollProgress * (isMobile ? 2 : 5);
-  const contentVisible = scrollProgress < 1;
-  const nextSectionVisible = scrollProgress > 0.5;
-
   return (
-    <div ref={sectionRef} className="relative h-[130vh] bg-black overflow-hidden">
-      {/* Main Content Container with sticky effect */}
-      <div
-        className="sticky top-0 h-screen flex items-center justify-center transition-opacity duration-500"
-        style={{
-          transform: `scale(${zoomScale})`,
-          opacity: contentVisible ? 1 : 0,
-          pointerEvents: contentVisible ? 'auto' : 'none',
-          transformOrigin: isMobile ? 'center center' : '60% center'
-        }}
-      >
-        <div className="w-full max-w-7xl px-4 sm:px-6 lg:px-8">
-          {/* Desktop Layout */}
-          <div className="hidden lg:flex items-center justify-between">
-            {/* Left Side */}
-            <div className="flex-1 pr-8">
-              <h1 className="text-5xl xl:text-7xl font-bold text-white mb-4 tracking-tight">
-                OUR GOALS
-              </h1>
+    <div ref={sectionRef} className="relative min-h-screen bg-black overflow-hidden">
+      {/* Animated Background Elements */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <div className="absolute top-20 left-10 w-2 h-2 bg-white rounded-full opacity-60 animate-pulse"></div>
+        <div className="absolute top-40 right-20 w-1 h-1 bg-white rounded-full opacity-40 animate-pulse" style={{ animationDelay: '1s' }}></div>
+        <div className="absolute bottom-32 left-1/4 w-1.5 h-1.5 bg-white rounded-full opacity-50 animate-pulse" style={{ animationDelay: '2s' }}></div>
+        <div className="absolute top-1/3 right-1/3 w-1 h-1 bg-white rounded-full opacity-30 animate-pulse" style={{ animationDelay: '3s' }}></div>
+      </div>
 
-              <div className="relative w-72 xl:w-80 h-48 xl:h-56 mt-8">
-                <svg viewBox="0 0 400 300" className="w-full h-full" style={{ filter: 'drop-shadow(0 20px 40px rgba(255, 0, 255, 0.3))' }}>
-                  <defs>
-                    <linearGradient id="gradient1" x1="0%" y1="0%" x2="100%" y2="100%">
-                      <stop offset="0%" stopColor="#ff006e" />
-                      <stop offset="25%" stopColor="#8338ec" />
-                      <stop offset="50%" stopColor="#3a86ff" />
-                      <stop offset="75%" stopColor="#06ffa5" />
-                      <stop offset="100%" stopColor="#ffbe0b" />
-                    </linearGradient>
-                    <linearGradient id="gradient2" x1="0%" y1="0%" x2="100%" y2="100%">
-                      <stop offset="0%" stopColor="#f72585" />
-                      <stop offset="33%" stopColor="#4cc9f0" />
-                      <stop offset="66%" stopColor="#7209b7" />
-                      <stop offset="100%" stopColor="#560bad" />
-                    </linearGradient>
-                  </defs>
-                  <path
-                    d="M50,150 Q200,50 350,150 Q200,250 50,150 Z"
-                    fill="url(#gradient1)"
-                    opacity="0.9"
-                    className="animate-pulse"
-                    style={{ animation: 'float 6s ease-in-out infinite' }}
-                  />
-                  <path
-                    d="M100,100 Q250,200 300,100 Q150,200 100,100 Z"
-                    fill="url(#gradient2)"
-                    opacity="0.7"
-                    style={{ animation: 'float 4s ease-in-out infinite reverse' }}
-                  />
-                </svg>
+      {/* Main Content Container */}
+      <div className="flex items-center justify-center min-h-screen py-12 px-4 sm:px-6 lg:px-8">
+        <div className="w-full max-w-7xl">
+          
+          {/* Desktop Layout */}
+          <div className="hidden lg:flex items-center justify-between gap-16">
+            {/* Left Side */}
+            <div className="flex-1 max-w-2xl">
+              <div className="space-y-8">
+                <div>
+                  <h1 className="text-6xl xl:text-8xl font-bold text-white mb-6 tracking-tight leading-none">
+                    OUR GOALS
+                  </h1>
+                  <div className="w-24 h-1 bg-white"></div>
+                </div>
+
               </div>
             </div>
 
             {/* Right Side - Goals */}
-            <div className="flex-1 max-w-lg">
-              <div className="bg-gray-900 rounded-3xl p-6 xl:p-8 border border-gray-800 space-y-6">
+            <div className="flex-1 max-w-2xl">
+              <div className="space-y-8">
                 {goals.map((goal, index) => (
                   <div
                     key={index}
-                    className="group cursor-pointer"
+                    className="group cursor-pointer transform transition-all duration-500 hover:translate-x-4"
                     style={{
                       animation: `slideInRight 1s ease-out ${goal.delay}ms both`
                     }}
                   >
-                    <div className="flex items-start space-x-4">
-                      <div className="text-3xl xl:text-4xl font-bold text-white group-hover:text-blue-400 transition-colors duration-300 flex-shrink-0">
-                        {goal.number}
-                      </div>
-                      <div className="flex-1">
-                        <h3 className="text-lg xl:text-xl font-medium text-gray-300 group-hover:text-white transition-colors duration-300 leading-tight">
-                          {goal.title}
-                        </h3>
+                    <div className="bg-white bg-opacity-5 backdrop-blur-sm rounded-2xl p-8 border border-white border-opacity-10 hover:bg-opacity-10 hover:border-opacity-20 transition-all duration-300">
+                      <div className="flex items-start space-x-6">
+                        <div className="text-5xl font-bold text-white group-hover:scale-110 transition-transform duration-300 flex-shrink-0">
+                          {goal.number}
+                        </div>
+                        <div className="flex-1 pt-2">
+                          <h3 className="text-xl font-medium text-gray-300 group-hover:text-white transition-colors duration-300 leading-relaxed">
+                            {goal.title}
+                          </h3>
+                        </div>
                       </div>
                     </div>
-                    {index < goals.length - 1 && (
-                      <div className="mt-6 h-px bg-gray-700 group-hover:bg-gray-600 transition-colors duration-300"></div>
-                    )}
                   </div>
                 ))}
               </div>
@@ -131,174 +99,132 @@ const GoalsSection = () => {
           </div>
 
           {/* Tablet Layout */}
-          <div className="hidden md:flex lg:hidden flex-col items-center space-y-8">
-            <h1 className="text-4xl md:text-6xl font-bold text-white text-center tracking-tight">
-              OUR GOALS
-            </h1>
-
-            <div className="relative w-64 h-40">
-              <svg viewBox="0 0 400 300" className="w-full h-full" style={{ filter: 'drop-shadow(0 15px 30px rgba(255, 0, 255, 0.3))' }}>
-                <defs>
-                  <linearGradient id="gradient1-tablet" x1="0%" y1="0%" x2="100%" y2="100%">
-                    <stop offset="0%" stopColor="#ff006e" />
-                    <stop offset="25%" stopColor="#8338ec" />
-                    <stop offset="50%" stopColor="#3a86ff" />
-                    <stop offset="75%" stopColor="#06ffa5" />
-                    <stop offset="100%" stopColor="#ffbe0b" />
-                  </linearGradient>
-                  <linearGradient id="gradient2-tablet" x1="0%" y1="0%" x2="100%" y2="100%">
-                    <stop offset="0%" stopColor="#f72585" />
-                    <stop offset="33%" stopColor="#4cc9f0" />
-                    <stop offset="66%" stopColor="#7209b7" />
-                    <stop offset="100%" stopColor="#560bad" />
-                  </linearGradient>
-                </defs>
-                <path
-                  d="M50,150 Q200,50 350,150 Q200,250 50,150 Z"
-                  fill="url(#gradient1-tablet)"
-                  opacity="0.9"
-                  style={{ animation: 'float 6s ease-in-out infinite' }}
-                />
-                <path
-                  d="M100,100 Q250,200 300,100 Q150,200 100,100 Z"
-                  fill="url(#gradient2-tablet)"
-                  opacity="0.7"
-                  style={{ animation: 'float 4s ease-in-out infinite reverse' }}
-                />
-              </svg>
+          <div className="hidden md:flex lg:hidden flex-col items-center space-y-12 text-center">
+            <div className="space-y-6">
+              <h1 className="text-5xl md:text-7xl font-bold text-white tracking-tight leading-none">
+                OUR GOALS
+              </h1>
+              <div className="w-16 h-1 bg-white mx-auto"></div>
             </div>
 
-            <div className="w-full max-w-2xl">
-              <div className="bg-gray-900 rounded-3xl p-6 border border-gray-800 space-y-6">
-                {goals.map((goal, index) => (
-                  <div
-                    key={index}
-                    className="group cursor-pointer"
-                    style={{
-                      animation: `slideInRight 1s ease-out ${goal.delay}ms both`
-                    }}
-                  >
-                    <div className="flex items-start space-x-4">
-                      <div className="text-3xl font-bold text-white group-hover:text-blue-400 transition-colors duration-300 flex-shrink-0">
+            {/* Abstract Design for Tablet */}
+            <div className="relative w-72 h-48">
+              <div className="absolute inset-0 flex items-center justify-center">
+                <div className="w-40 h-40 border-3 border-white rounded-full opacity-20 animate-spin-slow"></div>
+                <div className="absolute w-24 h-24 border-2 border-white rounded-full opacity-40 animate-pulse top-6 left-6"></div>
+                <div className="absolute w-16 h-16 border-2 border-white rounded-full opacity-60 animate-bounce-slow bottom-8 right-8"></div>
+                <div className="absolute w-3 h-3 bg-white rounded-full top-12 right-16 animate-ping"></div>
+                <div className="absolute w-4 h-4 bg-white rounded-full bottom-16 left-16 opacity-80"></div>
+              </div>
+            </div>
+
+            <div className="w-full max-w-3xl space-y-6">
+              {goals.map((goal, index) => (
+                <div
+                  key={index}
+                  className="group cursor-pointer transform transition-all duration-500 hover:scale-105"
+                  style={{
+                    animation: `slideInUp 1s ease-out ${goal.delay}ms both`
+                  }}
+                >
+                  <div className="bg-white bg-opacity-5 backdrop-blur-sm rounded-2xl p-6 border border-white border-opacity-10 hover:bg-opacity-10 hover:border-opacity-20 transition-all duration-300">
+                    <div className="flex items-start space-x-5">
+                      <div className="text-4xl font-bold text-white group-hover:scale-110 transition-transform duration-300 flex-shrink-0">
                         {goal.number}
                       </div>
-                      <div className="flex-1">
-                        <h3 className="text-lg font-medium text-gray-300 group-hover:text-white transition-colors duration-300 leading-tight">
+                      <div className="flex-1 pt-1">
+                        <h3 className="text-lg font-medium text-gray-300 group-hover:text-white transition-colors duration-300 leading-relaxed text-left">
                           {goal.title}
                         </h3>
                       </div>
                     </div>
-                    {index < goals.length - 1 && (
-                      <div className="mt-6 h-px bg-gray-700 group-hover:bg-gray-600 transition-colors duration-300"></div>
-                    )}
                   </div>
-                ))}
-              </div>
+                </div>
+              ))}
             </div>
           </div>
 
           {/* Mobile Layout */}
-          <div className="flex md:hidden flex-col items-center space-y-6 text-center">
-            <h1 className="text-3xl sm:text-4xl font-bold text-white tracking-tight px-2">
-              OUR GOALS
-            </h1>
-
-            <div className="relative w-48 sm:w-56 h-32 sm:h-36">
-              <svg viewBox="0 0 400 300" className="w-full h-full" style={{ filter: 'drop-shadow(0 10px 20px rgba(255, 0, 255, 0.3))' }}>
-                <defs>
-                  <linearGradient id="gradient1-mobile" x1="0%" y1="0%" x2="100%" y2="100%">
-                    <stop offset="0%" stopColor="#ff006e" />
-                    <stop offset="25%" stopColor="#8338ec" />
-                    <stop offset="50%" stopColor="#3a86ff" />
-                    <stop offset="75%" stopColor="#06ffa5" />
-                    <stop offset="100%" stopColor="#ffbe0b" />
-                  </linearGradient>
-                  <linearGradient id="gradient2-mobile" x1="0%" y1="0%" x2="100%" y2="100%">
-                    <stop offset="0%" stopColor="#f72585" />
-                    <stop offset="33%" stopColor="#4cc9f0" />
-                    <stop offset="66%" stopColor="#7209b7" />
-                    <stop offset="100%" stopColor="#560bad" />
-                  </linearGradient>
-                </defs>
-                <path
-                  d="M50,150 Q200,50 350,150 Q200,250 50,150 Z"
-                  fill="url(#gradient1-mobile)"
-                  opacity="0.9"
-                  style={{ animation: 'float 6s ease-in-out infinite' }}
-                />
-                <path
-                  d="M100,100 Q250,200 300,100 Q150,200 100,100 Z"
-                  fill="url(#gradient2-mobile)"
-                  opacity="0.7"
-                  style={{ animation: 'float 4s ease-in-out infinite reverse' }}
-                />
-              </svg>
+          <div className="flex md:hidden flex-col items-center space-y-8 text-center">
+            <div className="space-y-4">
+              <h1 className="text-4xl sm:text-5xl font-bold text-white tracking-tight leading-none px-2">
+                OUR GOALS
+              </h1>
+              <div className="w-12 h-1 bg-white mx-auto"></div>
             </div>
 
-            <div className="w-full max-w-sm">
-              <div className="bg-gray-900 rounded-2xl sm:rounded-3xl p-4 sm:p-6 border border-gray-800 space-y-4 sm:space-y-6">
-                {goals.map((goal, index) => (
-                  <div
-                    key={index}
-                    className="group cursor-pointer"
-                    style={{
-                      animation: `slideInUp 1s ease-out ${goal.delay}ms both`
-                    }}
-                  >
-                    <div className="flex items-start space-x-3 sm:space-x-4 text-left">
-                      <div className="text-2xl sm:text-3xl font-bold text-white group-hover:text-blue-400 transition-colors duration-300 flex-shrink-0">
+            {/* Abstract Design for Mobile */}
+            <div className="relative w-56 h-36">
+              <div className="absolute inset-0 flex items-center justify-center">
+                <div className="w-32 h-32 border-2 border-white rounded-full opacity-20 animate-spin-slow"></div>
+                <div className="absolute w-20 h-20 border border-white rounded-full opacity-40 animate-pulse top-4 left-4"></div>
+                <div className="absolute w-12 h-12 border border-white rounded-full opacity-60 animate-bounce-slow bottom-6 right-6"></div>
+                <div className="absolute w-2 h-2 bg-white rounded-full top-8 right-12 animate-ping"></div>
+                <div className="absolute w-3 h-3 bg-white rounded-full bottom-12 left-12 opacity-80"></div>
+              </div>
+            </div>
+
+            <div className="w-full max-w-sm space-y-4">
+              {goals.map((goal, index) => (
+                <div
+                  key={index}
+                  className="group cursor-pointer transform transition-all duration-500 hover:scale-105"
+                  style={{
+                    animation: `slideInUp 1s ease-out ${goal.delay}ms both`
+                  }}
+                >
+                  <div className="bg-white bg-opacity-5 backdrop-blur-sm rounded-xl p-5 border border-white border-opacity-10 hover:bg-opacity-10 hover:border-opacity-20 transition-all duration-300">
+                    <div className="flex items-start space-x-4 text-left">
+                      <div className="text-2xl sm:text-3xl font-bold text-white group-hover:scale-110 transition-transform duration-300 flex-shrink-0">
                         {goal.number}
                       </div>
-                      <div className="flex-1">
-                        <h3 className="text-sm sm:text-base font-medium text-gray-300 group-hover:text-white transition-colors duration-300 leading-tight">
+                      <div className="flex-1 pt-1">
+                        <h3 className="text-sm sm:text-base font-medium text-gray-300 group-hover:text-white transition-colors duration-300 leading-relaxed">
                           {goal.title}
                         </h3>
                       </div>
                     </div>
-                    {index < goals.length - 1 && (
-                      <div className="mt-4 sm:mt-6 h-px bg-gray-700 group-hover:bg-gray-600 transition-colors duration-300"></div>
-                    )}
                   </div>
-                ))}
-              </div>
+                </div>
+              ))}
             </div>
           </div>
         </div>
       </div>
 
-      {/* Next Section */}
-      <div
-        className="sticky top-0 h-screen flex items-center justify-center bg-black transition-opacity duration-500"
-        style={{
-          opacity: nextSectionVisible ? 1 : 0,
-          pointerEvents: nextSectionVisible ? 'auto' : 'none',
-          transform: `scale(${Math.max(0.9, 1 - (scrollProgress - 0.5) * 0.3)})`,
-        }}
-      >
-       
-      </div>
-
-      {/* Animations */}
+      {/* Custom Animations */}
       <style jsx>{`
-        @keyframes float {
-          0%, 100% { transform: translateY(0px) rotate(0deg); }
-          50% { transform: translateY(-15px) rotate(3deg); }
-        }
-
         @keyframes slideInRight {
-          from { opacity: 0; transform: translateX(50px); }
+          from { opacity: 0; transform: translateX(60px); }
           to { opacity: 1; transform: translateX(0); }
         }
 
         @keyframes slideInUp {
-          from { opacity: 0; transform: translateY(30px); }
+          from { opacity: 0; transform: translateY(40px); }
           to { opacity: 1; transform: translateY(0); }
         }
 
+        @keyframes spin-slow {
+          from { transform: rotate(0deg); }
+          to { transform: rotate(360deg); }
+        }
+
+        @keyframes bounce-slow {
+          0%, 100% { transform: translateY(0); }
+          50% { transform: translateY(-12px); }
+        }
+
+        .animate-spin-slow {
+          animation: spin-slow 20s linear infinite;
+        }
+
+        .animate-bounce-slow {
+          animation: bounce-slow 3s ease-in-out infinite;
+        }
+
         @media (max-width: 768px) {
-          @keyframes float {
-            0%, 100% { transform: translateY(0px) rotate(0deg); }
-            50% { transform: translateY(-8px) rotate(2deg); }
+          .animate-bounce-slow {
+            animation: bounce-slow 2s ease-in-out infinite;
           }
         }
       `}</style>

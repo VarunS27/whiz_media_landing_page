@@ -6,6 +6,7 @@ import ContactForm from "./section/contact";
 import Hero from "./section/Hero";
 import OfferingsPage from "./section/offer";
 import GoalsSection from "./section/Ourgoals";
+import AgencyResultsShowcase from "./section/Results";
 import NichesSection from "./section/Services";
 
 
@@ -19,6 +20,7 @@ function App() {
       <ClientsSection />
       <GoalsSection />
       <OfferingsPage />
+      <AgencyResultsShowcase />
       <ContactForm />
       <Footer />
       

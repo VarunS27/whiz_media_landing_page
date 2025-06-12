@@ -24,12 +24,13 @@ const Footer = () => {
   };
 
   const services = [
-    "Content Writing",
-    "Campaign Strategy", 
+    "Content Writing", 
     "Video Editing",
     "Digital Design",
+    "Campaign Strategy",
     "Influencer Marketing",
-    "Performance Marketing"
+    "Performance Marketing",
+    "Portfolio Website Development"
   ];
 
   return (
